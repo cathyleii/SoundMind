@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Flask App</title>
+		<title>SoundMind</title>
 		<link
 			rel="icon"
 			type="image/x-icon"
@@ -9,7 +9,36 @@
 		/>
 	</head>
 	<body>
-		<h2>Welcome to Flask</h2>
+		<h2>SoundMind</h2>
+		<form action="/submit" id="questions" method="post">
+			<label for="q1">How are you feeling today?</label><br />
+			<input type="text" id="q1" name="text" />
+			<br />
+			<p>Rate your mood on a scale of 1 to 5</p>
+			<input type="radio" id="1" name="rating" />
+			<label for="1">1</label>
+			<input type="radio" id="2" name="rating" />
+			<label for="2">2</label>
+			<input type="radio" id="3" name="rating" />
+			<label for="3">3</label>
+			<input type="radio" id="4" name="rating" />
+			<label for="4">4</label>
+			<input type="radio" id="5" name="rating" />
+			<label for="5">5</label>
+			<br />
+			<label for="q2"
+				>Has anything happened recently that made you feel happy, sad, or
+				worried?</label
+			>
+			<br />
+			<input type="text" id="q2" name="text" />
+			<br />
+			<label for="details">Feel free to add additional details</label>
+			<br />
+			<input type="text" id="details" name="text" />
+			<br />
+			<input type="submit" value="Submit" />
+		</form>
 		<a href="/analysis-complete">
 			<button>generate a random track</button>
 		</a>
