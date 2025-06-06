@@ -10,32 +10,38 @@
 	</head>
 	<body>
 		<h2>SoundMind</h2>
+		{% if unfilled_fields %}
+		<h4>Please fill in all the required blanks.</h4>
+		{% endif %}
 		<form action="/submit" id="questions" method="post">
-			<label for="q1">How are you feeling today?</label><br />
-			<input type="text" id="q1" name="text" />
+			<p>How are you feeling today?</p>
+			<input type="radio" id="happy" name="mood" value="happy" />
+			<label for="1">Happy</label>
+			<input type="radio" id="sad" name="mood" value="sad" />
+			<label for="2">Sad</label>
+			<input type="radio" id="angry" name="mood" value="angry" />
+			<label for="3">Angry</label>
+			<input type="radio" id="neutral" name="mood" value="neutral" />
+			<label for="4">Neutral</label>
+			<input type="radio" id="anxious" name="mood" value="anxious" />
+			<label for="5">Anxious</label>
 			<br />
-			<p>Rate your mood on a scale of 1 to 5</p>
-			<input type="radio" id="1" name="rating" />
-			<label for="1">1</label>
-			<input type="radio" id="2" name="rating" />
-			<label for="2">2</label>
-			<input type="radio" id="3" name="rating" />
-			<label for="3">3</label>
-			<input type="radio" id="4" name="rating" />
-			<label for="4">4</label>
-			<input type="radio" id="5" name="rating" />
-			<label for="5">5</label>
-			<br />
-			<label for="q2"
-				>Has anything happened recently that made you feel happy, sad, or
-				worried?</label
+			<label for="q1"
+				>What happened recently that made you feel this way?</label
 			>
 			<br />
-			<input type="text" id="q2" name="text" />
+			<input type="text" id="q1" name="q1_text" autocomplete="off" />
 			<br />
-			<label for="details">Feel free to add additional details</label>
+			<label for="q2"
+				>What's been weighing on your mind lately? Is there anything you're
+				looking forward to or dreading?</label
+			>
 			<br />
-			<input type="text" id="details" name="text" />
+			<input type="text" id="q2" name="q2_text" autocomplete="off" />
+			<br />
+			<label for="q3">Feel free to add any additional details</label>
+			<br />
+			<input type="text" id="q3" name="q3_text" autocomplete="off" />
 			<br />
 			<input type="submit" value="Submit" />
 		</form>
