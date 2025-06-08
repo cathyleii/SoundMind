@@ -4,7 +4,7 @@ from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 import json
 import spotify
 import os
-from sentiment_analysis import analyze_text
+import sentiment_analysis
 from dotenv import load_dotenv
 
 app = Flask(__name__)   # Flask constructor 
@@ -15,17 +15,13 @@ JOY_PLAYLIST1 = "spotify:playlist:7GhawGpb43Ctkq3PRP1fOL"
 JOY_PLAYLIST2 = "spotify:playlist:4Fh0313D3PitYzICKHhZ7r"
 
 SAD_PLAYLIST1 = "spotify:playlist:1XE7rQIGl1NFtWEAfwn4b9"
-
-SAD_FEAR_COMFORT_PLAYLIST = "spotify:playlist:2cLa9xr9SArrzy0wXnW8m2"
-
-FEAR_PLAYLIST1 = "spotify:playlist:12M8uwtzZqKHKSbBFbhGFy"
+SAD_FEAR_PLAYLIST = "spotify:playlist:2cLa9xr9SArrzy0wXnW8m2"
 FEAR_PLAYLIST_INSTRUMENTALS = "spotify:playlist:7LI3zw8HLkjKo5YpvA26KG"
 
 ANGER_PLAYLIST1 = "spotify:playlist:10egOYgYVWoviGAfdpiRty"
 ANGER_PLAYLIST_RAP = "spotify:playlist:4WEn4bQ84SdvLIkwWqa1H8"
 
-NEUTRAL_TOP_50 = "spotify:playlist:37i9dQZEVXbMDoHDwVN2tF"
-NEUTRAL_TODAYS_HITS = "spotify:playlist:37i9dQZF1DXcBWIGoYBM5M"
+
 
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
@@ -43,20 +39,57 @@ def index():
 def analysis_complete():
     analysis = session.get("analysis", "Error: Something went wrong, please try again.")
 
-    joy_tracks1 = spotify.retrieve_playlist_tracks(JOY_PLAYLIST1)
-    joy_tracks2 = spotify.retrieve_playlist_tracks(JOY_PLAYLIST2)
+    emotions = sentiment_analysis.get_emotions(analysis)
 
-    rand_track = spotify.generate_random_track(joy_tracks1, joy_tracks2)
-    track_name = rand_track['name']
-    track_url = rand_track['external_urls']['spotify']
-    track_pic = rand_track['album']['images'][1]['url']
+    for emotion in emotions:
+        if emotion != "disgust" and emotion != "surprise" and emotion != "neutral":
+            top_emotion = emotion
+            break
+
+    match top_emotion:
+        case "sadness":
+            playlist1 = SAD_PLAYLIST1
+            playlist2 = SAD_FEAR_PLAYLIST
+        case "fear":
+            playlist1 = SAD_FEAR_PLAYLIST
+            playlist2 = FEAR_PLAYLIST_INSTRUMENTALS
+        case "joy":
+            playlist1 = JOY_PLAYLIST1
+            playlist2 = JOY_PLAYLIST2
+        case "anger":
+            playlist1 = ANGER_PLAYLIST1
+            playlist2 = ANGER_PLAYLIST_RAP
+        
+    
+
+    tracks1 = spotify.retrieve_playlist_tracks(playlist1)
+    tracks2 = spotify.retrieve_playlist_tracks(playlist2)
+
+    rand_track1 = spotify.generate_random_track(tracks1)
+    rand_track2 = spotify.generate_random_track(tracks2)
+
+    # track1_name = rand_track1['name']
+    # track1_url = rand_track1['external_urls']['spotify']
+    # track1_pic = rand_track1['album']['images'][1]['url']
+    track1_name = spotify.get_track_name(rand_track1)
+    track2_name = spotify.get_track_name(rand_track2)
+
+    track1_url = spotify.get_track_url(rand_track1)
+    track2_url = spotify.get_track_url(rand_track2)
+
+    track1_pic = spotify.get_track_pic(rand_track1)
+    track2_pic = spotify.get_track_pic(rand_track2)
 
 
     return render_template("analysis-complete.html",
-                           track_name=track_name,
-                           track_url=track_url,
-                           track_pic=track_pic,
-                           analysis=analysis)
+                           track1_name=track1_name,
+                           track1_url=track1_url,
+                           track1_pic=track1_pic,
+                           track2_name=track2_name,
+                           track2_url=track2_url,
+                           track2_pic=track2_pic,
+                           analysis=analysis,
+                           top_emotion=top_emotion)
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -75,7 +108,7 @@ def submit():
         
         input_string = f"I feel {mood} because {q1_text}. {q2_text} {q3_text}"
         print(input_string)
-        session["analysis"] = analyze_text(input_string)
+        session["analysis"] = sentiment_analysis.analyze_text(input_string)
         return redirect("/analysis-complete")
     
 

@@ -9,3 +9,10 @@ def analyze_text(text):
 
 def get_top_emotion(analysis):
     return analysis[0]['label']
+
+def get_emotions(analysis):
+    emotions = []
+    for emotion in analysis:
+        emotions.append(emotion["label"])
+    
+    return emotions

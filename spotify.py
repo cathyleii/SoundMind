@@ -24,7 +24,18 @@ def retrieve_playlist_tracks(pl):
     playlist_data = sp.playlist(pl)
     return playlist_data['tracks']['items']
 
-def generate_random_track(pl1, pl2):
-    pl1.extend(pl2)
-    return pl1[randint(0, len(pl1))]['track']
+def generate_random_track(pl):
+    return pl[randint(0, len(pl))]['track']
+
+def get_track_name(track):
+    return track['name']
+
+def get_track_url(track):
+    return track['external_urls']['spotify']
+
+def get_track_pic(track):
+    return track['album']['images'][1]['url']
+
+
+
 

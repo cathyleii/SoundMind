@@ -1,0 +1,13 @@
+body {
+	background-image: url("/static/images/background-image.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#form-container {
+	background-color: white;
+}
+
+h1 {
+	color: white;
+}
