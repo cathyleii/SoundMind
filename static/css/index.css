@@ -2,12 +2,252 @@ body {
 	background-image: url("/static/images/background-image.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 #form-container {
 	background-color: white;
+	width: 800px;
+	border-left-width: 30px;
+	background-image: url("/static/images/lined-paper.jpg");
+	background-position: 15px;
+	position: relative;
+	padding-bottom: 8px;
+	animation: fadeIn 3s ease forwards;
+}
+
+#unfilled-blanks {
+	font-family: Blinker-Bold;
+	font-size: 25px;
+	position: absolute;
+	transform: translateX(27%) translateY(25px);
+	z-index: 1;
+}
+
+#ruler {
+	width: 4px;
+	height: 100%;
+	background-color: rgba(255, 61, 184, 0.65);
+	transform: translate(-350px, 0);
+	position: absolute;
 }
 
 h1 {
 	color: white;
+	font-family: Orbitron-Black;
+	font-size: 50px;
+	background-color: rgba(0, 0, 0, 0.776);
+	border-radius: 10px;
+	width: 400px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+}
+
+#title-soundwaves {
+	transform: translateY(-130px);
+	z-index: -1;
+}
+
+input[type="text"] {
+	width: 500px;
+	height: 70px;
+}
+
+input[type="radio"] {
+	appearance: none;
+	border: white thin solid;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+input[type="radio"]:hover {
+	cursor: pointer;
+	background-color: rgb(255, 255, 255);
+	border: rgb(255, 204, 236) 3px solid;
+	box-shadow: 0 0 10px 10px rgba(187, 131, 255, 0.65),
+		0 0 20px rgb(150, 89, 255);
+}
+
+#emoji-container {
+	display: flex;
+	column-gap: 15%;
+	margin-left: -60px;
+}
+
+.emoji-option {
+	display: flex;
+	flex-direction: column;
+}
+
+#happy {
+	background-image: url("/static/images/emoticons/happy.png");
+}
+
+#sad {
+	background-image: url("/static/images/emoticons/sad.png");
+}
+
+#angry {
+	background-image: url("/static/images/emoticons/angry.png");
+}
+
+#anxious {
+	background-image: url("/static/images/emoticons/anxious.png");
+}
+
+input[type="radio"]:checked {
+	border: rgb(255, 180, 227) 5px solid;
+}
+
+#happy:checked {
+	background-color: rgb(0, 255, 145);
+}
+
+#sad:checked {
+	background-color: rgb(89, 227, 255);
+}
+
+#angry:checked {
+	background-color: rgb(255, 100, 128);
+}
+
+#anxious:checked {
+	background-color: rgb(255, 152, 96);
+}
+
+#radio-container {
+	padding-top: 70px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 35px;
+	margin-bottom: -30px;
+}
+
+#radio-container p {
+	transform: translateX(15px);
+}
+
+#radio-container label {
+	margin-top: -27px;
+	margin-bottom: 15px;
+}
+
+input {
+	margin-bottom: 40px;
+}
+
+.questions-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#q2-container {
+	row-gap: 10px;
+	transform: translateY(-5px);
+}
+
+#q3-container {
+	row-gap: 10px;
+	transform: translateY(5px);
+}
+
+form {
+	font-family: Blinker-Regular;
+	font-size: 20px;
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 50px;
+	background-image: url("/static/images/lined-paper.jpg");
+	background-position: 15px;
+	position: relative;
+}
+
+label {
+	text-align: center;
+}
+
+#submit-button {
+	all: unset;
+	background-color: white;
+	background-image: url("/static/images/music-disc.png");
+	background-size: cover;
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	border-radius: 50%;
+	border: rgb(255, 171, 249) 3px solid;
+	color: black;
+	-webkit-text-stroke: 1.8px rgb(255, 171, 249);
+	margin-bottom: 40px;
+	margin-top: -30px;
+	font-size: 27px;
+	font-family: Blinker-ExtraBold;
+}
+
+#submit-button:hover {
+	box-shadow: 0 0 10px 10px rgba(245, 131, 255, 0.65),
+		0 0 20px rgb(150, 89, 255);
+}
+
+#submit-button:active {
+	box-shadow: 0 0 10px 10px rgba(206, 59, 214, 0.65), 0 0 20px rgb(102, 49, 194);
+}
+
+#title {
+	display: flex;
+	flex-direction: row;
+}
+
+#title-soundwave-l {
+	margin-right: -40px;
+	z-index: -1;
+}
+
+#title-soundwave-r {
+	margin-left: -40px;
+	transform: scaleX(-1);
+	z-index: -1;
+}
+
+@font-face {
+	font-family: Orbitron-Black;
+	src: url("/static/fonts/Orbitron/static/Orbitron-Black.ttf");
+}
+
+@font-face {
+	font-family: Blinker-Regular;
+	src: url("/static/fonts/Blinker/Blinker-Regular.ttf");
+}
+
+@font-face {
+	font-family: Blinker-Bold;
+	src: url("/static/fonts/Blinker/Blinker-Bold.ttf");
+}
+
+@font-face {
+	font-family: Blinker-ExtraBold;
+	src: url("/static/fonts/Blinker/Blinker-ExtraBold.ttf");
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 100%;
+		box-shadow: inset 0px 2000px 3px 5px rgba(155, 119, 255, 0.565),
+			30px -20px 3px 5px rgba(0, 0, 0, 0.801);
+	}
 }

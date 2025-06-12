@@ -6,48 +6,47 @@
 			type="image/x-icon"
 			href="/static/images/favicon_io/favicon.ico"
 		/>
+		<link rel="stylesheet" href="/static/css/analysis-complete.css" />
 	</head>
+
 	<body>
 		<h3>Your top detected emotion is: {{top_emotion}}</h3>
-		<div class="track-container">
-			{% if (top_emotion == "joy") %}
-			<h5>Happy Vibes 2025</h5>
-			{% endif %}
-			{% if (top_emotion == "sadness") %}
-			<h5>Calming</h5>
-			{% endif %}
-			{% if (top_emotion == "fear") %}
-			<h5>Comforting</h5>
-			{% endif %}
-			{% if (top_emotion == "anger") %}
-			<h5>Feeling Vengeful</h5>
-			{% endif %}
-			<p>{{track1_name}}</p>
-			<img src="{{track1_pic}}" />
-			<a href="{{track1_url}}" target="_blank">
-				<button>Check out this song</button>
-			</a>
+		<div id="results-container">
+			<div class="track-container">
+				{% if (top_emotion == "joy") %}
+				<h5>Happy Vibes 2025</h5>
+				{% endif %} {% if (top_emotion == "sadness") %}
+				<h5>Calming</h5>
+				{% endif %} {% if (top_emotion == "fear") %}
+				<h5>Comforting</h5>
+				{% endif %} {% if (top_emotion == "anger") %}
+				<h5>Feeling Vengeful</h5>
+				{% endif %}
+				<p>{{track1_name}}</p>
+				<img src="{{track1_pic}}" class="track-cover" />
+				<a href="{{track1_url}}" target="_blank">
+					<button>Check out this song</button>
+				</a>
+			</div>
+			<div class="track-container">
+				{% if (top_emotion == "joy") %}
+				<h5>Feel Good</h5>
+				{% endif %} {% if (top_emotion == "sadness") %}
+				<h5>Comforting</h5>
+				{% endif %} {% if (top_emotion == "fear") %}
+				<h5>Calming Instrumentals</h5>
+				{% endif %} {% if (top_emotion == "anger") %}
+				<h5>Or if you prefer rap..</h5>
+				{% endif %}
+				<p>{{track2_name}}</p>
+				<img src="{{track2_pic}}" class="track-cover" />
+				<a href="{{track2_url}}" target="_blank">
+					<button>Check out this song</button>
+				</a>
+			</div>
 		</div>
-		<div class="track-container">
-			{% if (top_emotion == "joy") %}
-			<h5>Feel Good</h5>
-			{% endif %}
-			{% if (top_emotion == "sadness") %}
-			<h5>Comforting</h5>
-			{% endif %}
-			{% if (top_emotion == "fear") %}
-			<h5>Calming Instrumentals</h5>
-			{% endif %}
-			{% if (top_emotion == "anger") %}
-			<h5>Or if you prefer rap..</h5>
-			{% endif %}
-			<p>{{track2_name}}</p>
-			<img src="{{track2_pic}}" />
-			<a href="{{track2_url}}" target="_blank">
-				<button>Check out this song</button>
-			</a>
+		<div id="analysis-container">
 			<p>{{analysis}}</p>
-		</div>
 		</div>
 	</body>
 </html>

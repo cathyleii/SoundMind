@@ -10,43 +10,72 @@
 		<link rel="stylesheet" href="/static/css/index.css" />
 	</head>
 	<body>
-		<h1>SoundMind</h1>
+		<div id="title">
+			<img
+				id="title-soundwave-l"
+				src="/static/images/soundwaves-animation-1.gif"
+			/>
+			<h1>SoundMind</h1>
+			<img
+				id="title-soundwave-r"
+				src="/static/images/soundwaves-animation-1.gif"
+			/>
+		</div>
 		<div id="form-container">
 			{% if unfilled_fields %}
-			<h4>Please fill in all the required blanks.</h4>
+			<p id="unfilled-blanks">Please fill in all the required blanks.</p>
 			{% endif %}
 			<form action="/submit" id="questions" method="post">
-				<p>Pick the emotion that best represents your current mood.</p>
-				<input type="radio" id="happy" name="mood" value="happy" />
-				<label for="happy">Happy</label>
-				<input type="radio" id="sad" name="mood" value="sad" />
-				<label for="sad">Sad</label>
-				<input type="radio" id="angry" name="mood" value="angry" />
-				<label for="angry">Angry</label>
-				<input type="radio" id="anxious" name="mood" value="anxious" />
-				<label for="anxious">Anxious</label>
+				<div id="ruler"></div>
+				<div id="radio-container">
+					<p>Pick the emotion that best represents your current mood.</p>
+					<div id="emoji-container">
+						<div class="emoji-option">
+							<input type="radio" id="happy" name="mood" value="happy" />
+							<label for="happy">Happy</label>
+						</div>
+						<div class="emoji-option">
+							<input type="radio" id="sad" name="mood" value="sad" />
+							<label for="sad">Sad</label>
+						</div>
+						<div class="emoji-option">
+							<input type="radio" id="angry" name="mood" value="angry" />
+							<label for="angry">Angry</label>
+						</div>
+						<div class="emoji-option">
+							<input type="radio" id="anxious" name="mood" value="anxious" />
+							<label for="anxious">Anxious</label>
+						</div>
+					</div>
+				</div>
 				<br />
-				<label for="q1"
-					>What happened recently that made you feel this way?</label
-				>
+				<div id="q1-container" class="questions-container">
+					<label for="q1"
+						>What happened recently that made you feel this way?</label
+					>
+					<br />
+					<textarea id="q1" name="q1_text" rows="10" cols="70"></textarea>
+				</div>
 				<br />
-				<input type="text" id="q1" name="q1_text" autocomplete="off" />
+				<div id="q2-container" class="questions-container">
+					<label for="q2">What's been weighing on your mind lately? </label>
+					<label for="q2">
+						Is there anything you're looking forward to or dreading?
+					</label>
+					<br />
+					<textarea id="q2" name="q2_text" rows="10" cols="70"></textarea>
+				</div>
 				<br />
-				<label for="q2"
-					>What's been weighing on your mind lately? Is there anything you're
-					looking forward to or dreading?</label
-				>
+				<div id="q3-container" class="questions-container">
+					<label for="q3"
+						>Feel free to write about any recent events, how your day is going,
+					</label>
+					<label for="q3"> any stress sources, etc.</label>
+					<br />
+					<textarea id="q3" name="q3_text" rows="10" cols="70"></textarea>
+				</div>
 				<br />
-				<input type="text" id="q2" name="q2_text" autocomplete="off" />
-				<br />
-				<label for="q3"
-					>Feel free to write about any recent events, how your day is going,
-					any stress sources, etc.</label
-				>
-				<br />
-				<input type="text" id="q3" name="q3_text" autocomplete="off" />
-				<br />
-				<input type="submit" value="Submit" />
+				<input id="submit-button" type="submit" value="Submit" />
 			</form>
 		</div>
 	</body>

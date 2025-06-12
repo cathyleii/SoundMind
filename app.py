@@ -89,7 +89,7 @@ def analysis_complete():
                            track2_url=track2_url,
                            track2_pic=track2_pic,
                            analysis=analysis,
-                           top_emotion=top_emotion)
+                           top_emotion=top_emotion.title())
 
 @app.route('/submit', methods=['POST'])
 def submit():
