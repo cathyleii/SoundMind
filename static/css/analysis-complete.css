@@ -11,7 +11,54 @@ body {
 	column-gap: 50px;
 }
 
-#track-container {
+.track-container {
 	display: flex;
 	flex-direction: column;
+	row-gap: 10px;
+	background-color: pink;
+	height: 545px;
+	border: pink 40px solid;
+}
+
+.play-button {
+	background-color: white;
+	border-radius: 50%;
+	border: none;
+	width: 60px;
+	height: 60px;
+	display: block;
+	transform: translateY(-14px);
+	cursor: pointer;
+}
+
+.triangle-play-button {
+	width: 0;
+	height: 0;
+	margin-left: 30%;
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent;
+	border-left: 24px solid #555;
+}
+
+.media-control-container {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	column-gap: 30px;
+}
+
+.media-control-inner {
+	width: 40px;
+	height: 40px;
+}
+
+.media-control-outer {
+	width: 25px;
+	height: 25px;
+	transform: translateY(25%);
+}
+
+.now-playing-bar {
+	border: rgba(255, 255, 255, 0.608) solid 3px;
+	margin-bottom: 36px;
 }

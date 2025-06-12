@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>SoundMind</title>
 		<link
 			rel="icon"
 			type="image/x-icon"
@@ -13,36 +14,82 @@
 		<h3>Your top detected emotion is: {{top_emotion}}</h3>
 		<div id="results-container">
 			<div class="track-container">
-				{% if (top_emotion == "joy") %}
+				{% if top_emotion == "Joy" %}
 				<h5>Happy Vibes 2025</h5>
-				{% endif %} {% if (top_emotion == "sadness") %}
+				{% elif top_emotion == "Sadness" %}
 				<h5>Calming</h5>
-				{% endif %} {% if (top_emotion == "fear") %}
+				{% elif top_emotion == "Fear" %}
 				<h5>Comforting</h5>
-				{% endif %} {% if (top_emotion == "anger") %}
+				{% elif top_emotion == "Anger" %}
 				<h5>Feeling Vengeful</h5>
 				{% endif %}
-				<p>{{track1_name}}</p>
 				<img src="{{track1_pic}}" class="track-cover" />
-				<a href="{{track1_url}}" target="_blank">
-					<button>Check out this song</button>
-				</a>
+				<p>{{track1_name}}</p>
+				<div class="now-playing-bar"></div>
+				<div class="media-control-container">
+					<img
+						id="shuffle-icon"
+						class="media-control-outer"
+						src="/static/images/media-controls/shuffle.png"
+					/>
+					<img
+						class="media-control-inner"
+						src="/static/images/media-controls/prev.png"
+					/>
+					<a href="{{track2_url}}" target="_blank">
+						<button class="play-button">
+							<div class="triangle-play-button"></div>
+						</button>
+					</a>
+					<img
+						class="media-control-inner"
+						src="/static/images/media-controls/next.png"
+					/>
+					<img
+						id="repeat-icon"
+						class="media-control-outer"
+						src="/static/images/media-controls/repeat.png"
+					/>
+				</div>
 			</div>
 			<div class="track-container">
-				{% if (top_emotion == "joy") %}
+				{% if (top_emotion == "Joy") %}
 				<h5>Feel Good</h5>
-				{% endif %} {% if (top_emotion == "sadness") %}
+				{% endif %} {% if (top_emotion == "Sadness") %}
 				<h5>Comforting</h5>
-				{% endif %} {% if (top_emotion == "fear") %}
+				{% endif %} {% if (top_emotion == "Fear") %}
 				<h5>Calming Instrumentals</h5>
-				{% endif %} {% if (top_emotion == "anger") %}
+				{% endif %} {% if (top_emotion == "Anger") %}
 				<h5>Or if you prefer rap..</h5>
 				{% endif %}
-				<p>{{track2_name}}</p>
 				<img src="{{track2_pic}}" class="track-cover" />
-				<a href="{{track2_url}}" target="_blank">
-					<button>Check out this song</button>
-				</a>
+				<p>{{track2_name}}</p>
+				<div class="now-playing-bar"></div>
+				<div class="media-control-container">
+					<img
+						id="shuffle-icon"
+						class="media-control-outer"
+						src="/static/images/media-controls/shuffle.png"
+					/>
+					<img
+						class="media-control-inner"
+						src="/static/images/media-controls/prev.png"
+					/>
+					<a href="{{track2_url}}" target="_blank">
+						<button class="play-button">
+							<div class="triangle-play-button"></div>
+						</button>
+					</a>
+					<img
+						class="media-control-inner"
+						src="/static/images/media-controls/next.png"
+					/>
+					<img
+						id="repeat-icon"
+						class="media-control-outer"
+						src="/static/images/media-controls/repeat.png"
+					/>
+				</div>
 			</div>
 		</div>
 		<div id="analysis-container">
