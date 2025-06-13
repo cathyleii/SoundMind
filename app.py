@@ -80,6 +80,9 @@ def analysis_complete():
     track1_pic = spotify.get_track_pic(rand_track1)
     track2_pic = spotify.get_track_pic(rand_track2)
 
+    artist1_name = spotify.get_artist(rand_track1)
+    artist2_name = spotify.get_artist(rand_track2)
+
 
     return render_template("analysis-complete.html",
                            track1_name=track1_name,
@@ -89,7 +92,9 @@ def analysis_complete():
                            track2_url=track2_url,
                            track2_pic=track2_pic,
                            analysis=analysis,
-                           top_emotion=top_emotion.title())
+                           top_emotion=top_emotion.title(),
+                           artist1_name=artist1_name,
+                           artist2_name=artist2_name)
 
 @app.route('/submit', methods=['POST'])
 def submit():

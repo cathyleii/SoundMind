@@ -1,14 +1,18 @@
+@import url("./fonts.css");
+
 body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	row-gap: 50px;
+	background-image: url("/static/images/analysis-bg.jpg");
 }
 
 #results-container {
 	display: flex;
 	justify-content: center;
-	column-gap: 50px;
+	column-gap: 190px;
 }
 
 .track-container {
@@ -16,8 +20,20 @@ body {
 	flex-direction: column;
 	row-gap: 10px;
 	background-color: pink;
-	height: 545px;
-	border: pink 40px solid;
+	height: 650px;
+	width: 385px;
+	align-items: center;
+	/* border: rgba(255, 255, 255, 0.41) 40px solid; */
+	animation: fadeIn 3s ease forwards;
+	background: rgba(255, 255, 255, 0.51);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(3px);
+	/* -webkit-backdrop-filter: blur(3px); */
+}
+
+.track-cover {
+	width: 320px;
+	height: 320px;
 }
 
 .play-button {
@@ -60,5 +76,65 @@ body {
 
 .now-playing-bar {
 	border: rgba(255, 255, 255, 0.608) solid 3px;
-	margin-bottom: 36px;
+	margin-bottom: 39px;
+	margin-top: -30px;
+	width: 83%;
+}
+
+.now-playing-circle {
+	border: white solid 10px;
+	border-radius: 60%;
+	background-color: white;
+	width: 1px;
+	height: 1px;
+	transform: translateY(-6px);
+	align-self: start;
+	margin-left: 29px;
+}
+
+h3 {
+	font-family: Orbitron-Black;
+	color: white;
+	font-size: 30px;
+}
+
+#top_emotion {
+	font-size: 40px;
+	margin-top: -60px;
+}
+
+h5 {
+	font-family: Blinker-Bold;
+}
+
+.names-container {
+	align-self: start;
+	margin-left: 35px;
+	margin-right: 35px;
+	/* display: flex;
+	flex-direction: column;
+	row-gap: 1px; */
+}
+
+.track-name {
+	font-family: Blinker-SemiBold;
+	font-size: 22px;
+	color: white;
+}
+
+.artist-name {
+	font-family: Blinker-Regular;
+	color: white;
+	margin-top: -16px;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 100%;
+		box-shadow: 30px -20px 3px 5px rgba(0, 0, 0, 0.801);
+	}
 }

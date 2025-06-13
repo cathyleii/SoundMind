@@ -11,7 +11,10 @@
 	</head>
 
 	<body>
-		<h3>Your top detected emotion is: {{top_emotion}}</h3>
+		<h3>
+			Your top detected emotion is:
+			<h3 id="top_emotion">{{top_emotion}}</h3>
+		</h3>
 		<div id="results-container">
 			<div class="track-container">
 				{% if top_emotion == "Joy" %}
@@ -24,7 +27,11 @@
 				<h5>Feeling Vengeful</h5>
 				{% endif %}
 				<img src="{{track1_pic}}" class="track-cover" />
-				<p>{{track1_name}}</p>
+				<div class="names-container">
+					<p class="track-name">{{track1_name}}</p>
+					<p class="artist-name">{{artist1_name}}</p>
+				</div>
+				<div class="now-playing-circle"></div>
 				<div class="now-playing-bar"></div>
 				<div class="media-control-container">
 					<img
@@ -63,7 +70,11 @@
 				<h5>Or if you prefer rap..</h5>
 				{% endif %}
 				<img src="{{track2_pic}}" class="track-cover" />
-				<p>{{track2_name}}</p>
+				<div class="names-container">
+					<p class="track-name">{{track2_name}}</p>
+					<p class="artist-name">{{artist2_name}}</p>
+				</div>
+				<div class="now-playing-circle"></div>
 				<div class="now-playing-bar"></div>
 				<div class="media-control-container">
 					<img

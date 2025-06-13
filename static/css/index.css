@@ -1,3 +1,4 @@
+@import url("./fonts.css");
 body {
 	background-image: url("/static/images/background-image.jpg");
 	background-repeat: no-repeat;
@@ -218,26 +219,6 @@ label {
 	margin-left: -40px;
 	transform: scaleX(-1);
 	z-index: -1;
-}
-
-@font-face {
-	font-family: Orbitron-Black;
-	src: url("/static/fonts/Orbitron/static/Orbitron-Black.ttf");
-}
-
-@font-face {
-	font-family: Blinker-Regular;
-	src: url("/static/fonts/Blinker/Blinker-Regular.ttf");
-}
-
-@font-face {
-	font-family: Blinker-Bold;
-	src: url("/static/fonts/Blinker/Blinker-Bold.ttf");
-}
-
-@font-face {
-	font-family: Blinker-ExtraBold;
-	src: url("/static/fonts/Blinker/Blinker-ExtraBold.ttf");
 }
 
 @keyframes fadeIn {

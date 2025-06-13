@@ -36,6 +36,6 @@ def get_track_url(track):
 def get_track_pic(track):
     return track['album']['images'][1]['url']
 
-
-
+def get_artist(track):
+    return track["artists"][0]["name"]
 

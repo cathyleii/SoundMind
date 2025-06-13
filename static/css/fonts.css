@@ -1,0 +1,24 @@
+@font-face {
+	font-family: Orbitron-Black;
+	src: url("/static/fonts/Orbitron/static/Orbitron-Black.ttf");
+}
+
+@font-face {
+	font-family: Blinker-Regular;
+	src: url("/static/fonts/Blinker/Blinker-Regular.ttf");
+}
+
+@font-face {
+	font-family: Blinker-Bold;
+	src: url("/static/fonts/Blinker/Blinker-Bold.ttf");
+}
+
+@font-face {
+	font-family: Blinker-ExtraBold;
+	src: url("/static/fonts/Blinker/Blinker-ExtraBold.ttf");
+}
+
+@font-face {
+	font-family: Blinker-SemiBold;
+	src: url("/static/fonts/Blinker/Blinker-SemiBold.ttf");
+}
