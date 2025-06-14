@@ -9,12 +9,11 @@
 		/>
 		<link rel="stylesheet" href="/static/css/analysis-complete.css" />
 	</head>
-
 	<body>
-		<h3>
-			Your top detected emotion is:
+		<div id="top-emotion-container">
+			<h3>Your top detected emotion is:</h3>
 			<h3 id="top_emotion">{{top_emotion}}</h3>
-		</h3>
+		</div>
 		<div id="results-container">
 			<div class="track-container">
 				{% if top_emotion == "Joy" %}
@@ -26,7 +25,7 @@
 				{% elif top_emotion == "Anger" %}
 				<h5>Feeling Vengeful</h5>
 				{% endif %}
-				<img src="{{track1_pic}}" class="track-cover" />
+				<img src="{{track1_pic}}" class="track-pic" />
 				<div class="names-container">
 					<p class="track-name">{{track1_name}}</p>
 					<p class="artist-name">{{artist1_name}}</p>
@@ -67,9 +66,9 @@
 				{% endif %} {% if (top_emotion == "Fear") %}
 				<h5>Calming Instrumentals</h5>
 				{% endif %} {% if (top_emotion == "Anger") %}
-				<h5>Or if you prefer rap..</h5>
+				<h5>Rap</h5>
 				{% endif %}
-				<img src="{{track2_pic}}" class="track-cover" />
+				<img src="{{track2_pic}}" class="track-pic" />
 				<div class="names-container">
 					<p class="track-name">{{track2_name}}</p>
 					<p class="artist-name">{{artist2_name}}</p>
@@ -104,7 +103,37 @@
 			</div>
 		</div>
 		<div id="analysis-container">
-			<p>{{analysis}}</p>
+			<h3>Top 3 Emotions Detected:</h3>
+			<div class="probability">
+				<p class="prob-text">
+					{{ analysis[0]["label"].title()}}: {{(analysis[0]["score"] *
+					100)|round(2)}}%
+				</p>
+				<div
+					class="prob-bar"
+					style="width: {{ analysis[0]['score'] * 100 }}%;"
+				></div>
+			</div>
+			<div class="probability">
+				<p class="prob-text">
+					{{ analysis[1]["label"].title()}}: {{(analysis[1]["score"] *
+					100)|round(2)}}%
+				</p>
+				<div
+					class="prob-bar"
+					style="width: {{ analysis[1]['score'] * 100 }}%;"
+				></div>
+			</div>
+			<div class="probability">
+				<p class="prob-text">
+					{{ analysis[2]["label"].title()}}: {{(analysis[2]["score"] *
+					100)|round(2)}}%
+				</p>
+				<div
+					class="prob-bar"
+					style="width: {{ analysis[2]['score'] * 100 }}%;"
+				></div>
+			</div>
 		</div>
 	</body>
 </html>

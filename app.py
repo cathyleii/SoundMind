@@ -68,9 +68,10 @@ def analysis_complete():
     rand_track1 = spotify.generate_random_track(tracks1)
     rand_track2 = spotify.generate_random_track(tracks2)
 
-    # track1_name = rand_track1['name']
-    # track1_url = rand_track1['external_urls']['spotify']
-    # track1_pic = rand_track1['album']['images'][1]['url']
+    # get another track if the track is the unavailable track
+    while spotify.get_track_url(rand_track2) == "spotify:track:2hMhYA09pRnYEbohXKhHhy":
+        rand_track2 = spotify.generate_random_track(tracks2)
+
     track1_name = spotify.get_track_name(rand_track1)
     track2_name = spotify.get_track_name(rand_track2)
 

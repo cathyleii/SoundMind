@@ -24,7 +24,7 @@ body {
 	font-family: Blinker-Bold;
 	font-size: 25px;
 	position: absolute;
-	transform: translateX(27%) translateY(25px);
+	transform: translateX(27%) translateY(20px);
 	z-index: 1;
 }
 
@@ -124,11 +124,11 @@ input[type="radio"]:checked {
 }
 
 #radio-container {
-	padding-top: 70px;
+	padding-top: 60px;
 	display: flex;
 	flex-direction: column;
-	row-gap: 35px;
-	margin-bottom: -30px;
+	row-gap: 30px;
+	margin-bottom: -18px;
 }
 
 #radio-container p {
@@ -150,9 +150,13 @@ input {
 	align-items: center;
 }
 
+#q1-container {
+	transform: translateY(-15px);
+}
+
 #q2-container {
 	row-gap: 10px;
-	transform: translateY(-5px);
+	transform: translateY(-14px);
 }
 
 #q3-container {
@@ -178,27 +182,26 @@ label {
 }
 
 #submit-button {
-	all: unset;
-	background-color: white;
-	background-image: url("/static/images/music-disc.png");
+	background-color: black;
+	color: rgb(255, 241, 254);
 	background-size: cover;
+	width: 200px;
+	height: 200px;
 	cursor: pointer;
-	width: 100px;
-	height: 100px;
+	width: 180px;
+	height: 50px;
+	margin-top: -60px;
 	text-align: center;
-	border-radius: 50%;
+	border-radius: 10px;
 	border: rgb(255, 171, 249) 3px solid;
-	color: black;
-	-webkit-text-stroke: 1.8px rgb(255, 171, 249);
-	margin-bottom: 40px;
-	margin-top: -30px;
-	font-size: 27px;
-	font-family: Blinker-ExtraBold;
+	font-size: 24px;
+	font-family: Blinker-SemiBold;
 }
 
 #submit-button:hover {
-	box-shadow: 0 0 10px 10px rgba(245, 131, 255, 0.65),
+	box-shadow: 0 0 10px 10px rgba(187, 131, 255, 0.65),
 		0 0 20px rgb(150, 89, 255);
+	-webkit-text-stroke: 1.8px rgb(255, 171, 249);
 }
 
 #submit-button:active {
@@ -219,6 +222,13 @@ label {
 	margin-left: -40px;
 	transform: scaleX(-1);
 	z-index: -1;
+}
+
+textarea {
+	border: rgba(0, 0, 0, 0.557) 2px solid;
+	font-family: Blinker-Regular;
+	font-size: 18px;
+	background-color: rgba(255, 255, 255, 0.755);
 }
 
 @keyframes fadeIn {

@@ -25,7 +25,7 @@ def retrieve_playlist_tracks(pl):
     return playlist_data['tracks']['items']
 
 def generate_random_track(pl):
-    return pl[randint(0, len(pl))]['track']
+    return pl[randint(0, len(pl)-1)]['track']
 
 def get_track_name(track):
     return track['name']
