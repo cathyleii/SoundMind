@@ -69,7 +69,7 @@ def analysis_complete():
     rand_track2 = spotify.generate_random_track(tracks2)
 
     # get another track if the track is the unavailable track
-    while spotify.get_track_url(rand_track2) == "spotify:track:2hMhYA09pRnYEbohXKhHhy":
+    while spotify.get_track_url(rand_track2) == "https://open.spotify.com/track/2hMhYA09pRnYEbohXKhHhy?si=2da35918dd9341bb":
         rand_track2 = spotify.generate_random_track(tracks2)
 
     track1_name = spotify.get_track_name(rand_track1)
