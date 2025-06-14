@@ -1,4 +1,3 @@
-from transformers import pipeline
 from gradio_client import Client
 
 classifier = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base", top_k=None)
